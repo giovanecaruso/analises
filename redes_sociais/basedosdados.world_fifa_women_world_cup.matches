@@ -1,0 +1,3 @@
+## Query simples para acessar histórico de resultados da seleção brasileira na Copa do Mundo Feminina
+SELECT year,score, country_name, team_a_name, team_b_name, match_date FROM `basedosdados.world_fifa_women_world_cup.matches` 
+WHERE (team_a_name = 'Brazil' OR team_b_name = 'Brazil')
