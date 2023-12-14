@@ -1,0 +1,36 @@
+# Para identificar a quantidade de partos normais e cesárias
+
+SELECT
+    tipo_parto,
+    COUNT(*) AS total_partos
+FROM
+    basedosdados.br_ms_sinasc.microdados
+WHERE
+    tipo_parto IN ('1', '2')  
+GROUP BY
+    tipo_parto;
+
+#Para identificar a idade média das mães 
+
+SELECT
+    AVG(idade_mae) AS idade_media
+FROM
+    basedosdados.br_ms_sinasc.microdados;
+# Para identificar o peso mais comum de recém nascidos 
+SELECT
+    peso,
+    COUNT(*) AS quantidade
+FROM
+    basedosdados.br_ms_sinasc.microdados
+GROUP BY
+    peso
+ORDER BY
+    quantidade DESC
+LIMIT 1;
+
+#Número médio de consultas de pré-natal por semana de gestação:
+
+SELECT
+    AVG(pre_natal) AS media_consultas_pre_natal
+FROM
+    basedosdados.br_ms_sinasc.microdados;
